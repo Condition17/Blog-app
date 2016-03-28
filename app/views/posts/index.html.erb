@@ -1,0 +1,25 @@
+<% if flash[:notice] %>
+	<%=content_tag(:div,content_tag(:label,flash[:notice]),class:"success")%><br/>
+
+<% elsif flash[:alert] %>
+	<%=content_tag(:div,content_tag(:label,flash[:alert]),class:"alert")%><br/>
+<% end %>
+
+<div class = "post">
+<%@posts.each do |post| %>
+	<%=link_to post.title, post_path(post.id), class:"title"%><br /><br />
+	<%=content_tag(:p,"Author: #{post.user.username}",class:"author")%>
+	<%=content_tag(:p,post.description,class:"description")%>
+
+<div class = "options">
+	<%=link_to "Edit", edit_post_path(post.id) %> | <%=link_to "Delete",delete_post_path(post.id),:method => :delete%>
+</div>
+
+<%=content_tag(:div,nil,class:"line")%>
+
+<%end%>
+
+</div>
+<br />
+
+<%=link_to "Add a post",posts_new_path,class: "add" %>

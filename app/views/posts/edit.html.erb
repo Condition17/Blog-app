@@ -1,0 +1,14 @@
+<% if flash[:validation_alert] %>
+	<% flash[:validation_alert].each do |error| %>
+	<%=content_tag(:div,content_tag(:label,error),class:"no_post")%><br/>
+<% end %>
+<%end%>
+
+
+<div class = "form">
+<%= simple_form_for @current_post do |p|%>
+<%= p.input :title, :label => "Title"%><br />
+<%= p.text_area :description, placeholder: "Write your post here..."%><br />
+<%= p.button :submit%>
+<%end%>
+</div>
