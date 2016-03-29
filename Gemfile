@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'paperclip'
+
 gem 'letter_opener_web', '~> 1.2.0', :group => :development
 
 gem 'hirb'

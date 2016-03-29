@@ -1,17 +1,16 @@
 class ContactsController < ApplicationController
 	def new
 		render "pages/contact"
+
 	end
 	
 	def create
-		 session[:nume] = params[:nume]	
-		 session[:prenume] = params[:prenume]
-		 session[:email] = params[:email]
-		 session[:comment] = params[:comment]
-		 flash[:notice] = "Contact saved"
-		 redirect_to contacts_show_path
+	
+		 ContactMailer.reply_review( params[:nume], params[:prenume], params[:comment], params[:email]).deliver!
+		  flash[:notice] = "Contact saved"
+		 redirect_to new_contact_path
+		 
 	end
-
 	def show
 		@nume = session[:nume]
 		@prenume = session[:prenume]

@@ -1,37 +1,33 @@
 Rails.application.routes.draw do
 
+ if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
   get "/home", to: :index, controller: :home
+  resources :pages
   get "/pages/about_us" => "pages#about_us"
   get "/pages/contact" => "pages#contact"
-  get '/contacts' => "contacts#index"
-  get "/contacts/new" => "contacts#new"
   post "/contacts/new" => "contacts#create"
-  get "/contacts/show" => "contacts#show"
+  resources :contacts
   root to: "pages#root"
-    get "/posts/new" => "posts#new"
 
-  get "/posts" => "posts#index"
-  get '/posts/:id' => "posts#show",as: :post
-  patch 'posts/:id' => "posts#update"
- get "/posts/:id/edit" => "posts#edit",as: :edit_post
- delete "/posts/:id" => "posts#destroy",as: :delete_post
+resources :posts do
+  resources :comments
+end
+  get '/posts/:id/comments/new/(:parent_id)' => "comments#new", as: :new_comment
+  resources :login
 
-  get "/login/new"=>"login#new"
- post "/login/new" => "login#create"
-  get "/login/logout" => "login#logout"
+ # get "/login/new"=>"login#new"
+  post "/login/new" => "login#create"
+  get "/logout" => "login#logout"
   post "/posts" => "posts#create"
   
   get "/signup" => "users#new"
   post "/users" => "users#create"
-
   get "/users" => "posts#index"
+  
  
-
-
-  if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/letter_opener"
-  end
-
 
   #get 'pages/:id', to: 'pages#root', constraints: { id: /./ }
 

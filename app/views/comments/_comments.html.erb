@@ -1,0 +1,24 @@
+<% def show_comments(comment,post) %>
+	<ul>
+	
+	<li> <%=comment.user.username%>: <%= comment.content %><br \>
+
+	<% parent_id = comment.id %>
+	<%= render partial: "comments/new_reply", locals: {post: post, parent_id: parent_id} %>
+		<br \>
+	</li>
+	<% children = post.comments.where(parent_id: comment.id) %>
+	<% children.each do |child| %>
+		<% show_comments(child,post) %>
+	<%end%>
+	</ul>
+<%end%>
+
+
+<% if post.comments %>
+	<% post.comments.each do |comment| %>
+		<% if comment.parent_id == nil %>
+			<% show_comments(comment,post) %>
+		<%end%>
+	<%end%>
+<%end%>
