@@ -1,0 +1,4 @@
+<%= image_tag 	@current_user.photo.picture.url(:medium), size: "500x500" %>
+
+<%= render partial: "comments/comments", locals: {post: @current_user} %>
+<%= render partial: "comments/new_comment", locals: {post: @current_user, parent_id: nil} %>

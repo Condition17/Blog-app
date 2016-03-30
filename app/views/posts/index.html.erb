@@ -4,7 +4,6 @@
 <% elsif flash[:alert] %>
 	<%=content_tag(:div,content_tag(:label,flash[:alert]),class:"alert")%><br/>
 <% end %>
-
 <div class = "post">
 <%@posts.each do |post| %>
 	<%=link_to post.title, post_path(post.id), class:"title"%><br /><br />

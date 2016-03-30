@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
+	has_one :photo
 	has_many :posts
-	has_many :comments
+	has_many :comments, as: :commentable
 	validates :username, presence:true
 	validates :username, uniqueness:true, length:{in: 2..10},
 	unless: "username.blank?"

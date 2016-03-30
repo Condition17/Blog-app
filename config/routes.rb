@@ -3,8 +3,6 @@ Rails.application.routes.draw do
  if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
-
-  get "/home", to: :index, controller: :home
   resources :pages
   get "/pages/about_us" => "pages#about_us"
   get "/pages/contact" => "pages#contact"
@@ -12,22 +10,19 @@ Rails.application.routes.draw do
   resources :contacts
   root to: "pages#root"
 
-resources :posts do
+  resources :posts do
   resources :comments
 end
   get '/posts/:id/comments/new/(:parent_id)' => "comments#new", as: :new_comment
   resources :login
-
- # get "/login/new"=>"login#new"
   post "/login/new" => "login#create"
   get "/logout" => "login#logout"
   post "/posts" => "posts#create"
-  
-  get "/signup" => "users#new"
-  post "/users" => "users#create"
-  get "/users" => "posts#index"
-  
- 
+
+  resources :users do 
+    resources :photos 
+    resources :comments
+end
 
   #get 'pages/:id', to: 'pages#root', constraints: { id: /./ }
 

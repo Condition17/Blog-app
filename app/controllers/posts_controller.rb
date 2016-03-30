@@ -32,7 +32,7 @@ class PostsController < ApplicationController
 	def index
 		if(Post.all.empty?)	
 			flash[:alert] = "There are no posts! Write a post :D"
-			redirect_to posts_new_path
+			redirect_to new_post_path
 		else
 		@posts = Post.all
 		end

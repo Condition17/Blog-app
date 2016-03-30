@@ -1,0 +1,3 @@
+<%= image_tag @Photo.picture.url(:medium), size: "500x500" %>
+<%= render partial: "comments/comments", locals: {post: @Photo} %>
+<%= render partial: "comments/new_comment", locals: {post: @Photo, parent_id: nil} %>

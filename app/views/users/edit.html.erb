@@ -1,0 +1,14 @@
+<div class = "form">
+
+ <p> Profile picture: <br>
+
+ <%= image_tag @current_user.photo.picture.url(:medium), size: "300x300" %><br>
+ <%= link_to "Change profile picture", edit_user_photo_path(session[:user_id],@profile_picture.id)%>
+ </p>
+ <%= simple_form_for @current_user do |p| %>
+<%= p.input :email%><br />
+<%= p.input :password, placeholder: '6-20 characters',:label => "New Password"%><br />
+<%= p.input :password_confirmation, placeholder: "Confirm new password", :label => "Password confirmation"%><br />
+<%= p.button :submit %>
+<%end%>
+</div>
