@@ -4,10 +4,12 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
+
 namespace :api do
     resources :users, only: [ :index , :show]
     resources :posts, only: [ :index , :show]
   end
+
   resources :pages
   get "/pages/about_us" => "pages#about_us"
   get "/pages/contact" => "pages#contact"
