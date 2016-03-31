@@ -1,0 +1,6 @@
+<div class = "form">
+<%= simple_form_for [post, post.comments.build] do |p|%>
+<%= p.text_area :content, placeholder: "Write comment here..."%><br />
+<%= p.button :submit%>
+<%end%>
+</div>

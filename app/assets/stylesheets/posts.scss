@@ -1,0 +1,75 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+ .title{
+ 	font-size: 25px;
+ 	font-weight: bold;
+
+ }
+
+.add{
+
+   	border-style: solid;
+    border-width: 1px;
+	border-color: green;
+	padding:10px;
+	padding-right:10%;
+	padding-left: 10%;
+	color:black;
+	border-radius: 5px;
+	align:center;
+	margin-left: 37%;
+}
+.line{
+
+	margin-left:30%;
+ 	margin-right: 30%;
+ 	border-bottom : 1.5px solid gray;
+ 	opacity: 0.5;
+ 	margin-bottom: 20px;
+}
+.add:hover{
+	background-color: green;
+	color:white;
+}
+.no_post{
+
+	color:red;
+	margin-left: 10%;
+	font-weight: bold
+}
+
+.description{
+	text-align: center;
+
+}
+.author{
+
+color:#898D8F;
+}
+.test
+{
+width: auto;
+height: auto;
+}    
+label{
+	margin-right:3px;
+}
+.post{
+
+	text-align: center;
+}
+.options{
+	align-content: center;
+	text-align: center;
+	padding: 10px;
+}
+
+
+.edit_problem{
+
+	color:red;
+	margin-left: 10%;
+	font-weight: bold;
+}

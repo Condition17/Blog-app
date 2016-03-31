@@ -1,0 +1,13 @@
+
+<% if flash[:alert] %>
+<%=content_tag(:div,content_tag(:label,flash[:alert]),class:"login_problem")%><br/>
+<% end %>
+
+<div class = "form">
+
+<%= form_tag do%>
+<%= label_tag 'User:'%> <%= text_field_tag 'user' %><br /><br />
+<%= label_tag 'Password'%> <%= password_field_tag 'password' %><br /><br />
+ <%= submit_tag "Login"%>
+<% end %>
+</div>

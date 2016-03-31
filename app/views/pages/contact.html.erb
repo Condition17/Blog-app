@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div class = "form">
+
+<%= form_tag do%>
+ <%=label_tag "Nume:"%> <%= text_field_tag 'nume' %><br /><br />
+<%=label_tag "Prenume: "%> <%= text_field_tag 'prenume' %><br /><br/>
+<%=label_tag "Comentariu: "%><br/><br /><%= text_area_tag 'comment',nil,size: "50x5" %> <br /><br />
+ <%=label_tag "Email: "%><%= email_field_tag 'email' %><br /><br />
+ <%= submit_tag "Submit" %>
+<% end %>
+</div>
+</body>
+</html>

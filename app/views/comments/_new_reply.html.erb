@@ -1,0 +1,8 @@
+<div class = "form">
+<%= simple_form_for [post, post.comments.build] do |p|%>
+<%= p.input :parent_id, as: :hidden, :input_html => { :value => parent_id } %>
+<%= p.text_area :content, placeholder: "Reply ..."%><br />
+<%= p.button :submit, name: "class",value: post.class%>
+<%end%>
+</div>
+

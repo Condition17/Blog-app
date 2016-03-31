@@ -1,0 +1,8 @@
+<div class = "post">
+<%=content_tag(:p, @current_post.title ,class:"title")%>
+<%=content_tag(:p, "Author: "+@current_post.user.username ,class:"author")%>
+<%=content_tag(:p, @current_post.description ,class:"description")%>
+</div>
+<%= render partial: "comments/comments", locals: {post: @current_post} %>
+<%= render partial: "comments/new_comment", locals: {post: @current_post, parent_id: nil} %>
+

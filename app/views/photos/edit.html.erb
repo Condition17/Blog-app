@@ -1,0 +1,7 @@
+<%= image_tag @Photo.picture.url(:medium), size: "300x300"  %><br>
+<div class = "form">
+<%= simple_form_for [@User,@Photo] do |form| %>
+  <%= form.input :picture, as: :file %>
+  <%= form.button :submit %>
+<%end%>
+</div>

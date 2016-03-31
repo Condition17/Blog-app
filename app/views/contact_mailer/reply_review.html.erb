@@ -1,0 +1,10 @@
+<%="Hi, " + (@first_name.capitalize)+ " " + (@last_name.capitalize) + " contacted you:" %><br \ >
+<%="Comment:"%><br />
+<% if @content %>
+<%= @content %><br />
+<% else %>
+<%= "-" %><br />
+<% end %>
+<% if @email %>
+<%="You could contact him at: " + ( @email) %>
+<% end %>

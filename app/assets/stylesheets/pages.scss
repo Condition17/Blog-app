@@ -1,0 +1,23 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+a{
+	
+	text-decoration: none;
+	color:black;
+	display: inline;
+	padding:10px;
+}
+
+
+li {
+	display:inline;
+	margin-left: 20px;
+}
+.comments{
+	
+	color:blue;
+}
+.rails_image{
+	margin-left: 12%;
+}
